@@ -1,6 +1,6 @@
 # Dockerfile for Vue 3 + Vite + TypeScript project
 
-FROM node:18-alpine
+FROM node:20.19-alpine
 
 # Set working directory
 WORKDIR /app
@@ -14,8 +14,8 @@ RUN npm ci
 # copy rest of the project
 COPY . .
 
-# expose vite dev server port
-EXPOSE 5173
+# expose HTTP port (serve on port 80 inside container)
+EXPOSE 80
 
 # default command
 CMD ["npm", "run", "dev"]
